@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap');
+
+
+.header{margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right: auto;}
+img#head{width: 100%;}
+body {
+background: rgba(176, 113, 158, 72%);
+margin-left: auto;
+margin-right: auto;
+}
+
+.container {
+  position: relative;
+}
+
+img#plates{width: 90%; margin-right: 10px; margin-left: 310px; margin-bottom: 50px; z-index: 5}
+
+.bread {position: absolute; left: 880px; top: 1409px; width: 20%; opacity:0; transition: 0.5s ease}
+.bread:hover{
+  opacity: 1;
+}
+.nuts {position: absolute; left: 3500px; top: 180px; width: 18%; opacity:0; transition: 0.5s ease}
+.nuts:hover{
+  opacity: 1;
+}
+.strawberry {position: absolute; left: 2349px; top: 940px; width: 18%; opacity:0; transition: 0.5s ease}
+.strawberry:hover{
+  opacity: 1;
+}
+.beans {position: absolute; left: 3700px; top: 1800px; width: 20%; opacity:0; transition: 0.5s ease}
+.beans:hover{
+  opacity: 1;
+}
+.potato {position: absolute; left: 2100px; top: 2718px; width: 18%; opacity:0; transition: 0.5s ease}
+.potato:hover{
+  opacity: 1;
+}
+
+h1 {
+font-size: 100px; 
+font-weight: 800; 
+margin-left: 300px; 
+margin-right: 500px; 
+font-family: 'Work Sans', sans-serif;
+color: rgb(146, 62, 64, 1.0)}
+
+h2 {
+font-size: 80px; 
+font-weight: normal; 
+margin-left: 300px; 
+margin-right: 300px; 
+font-family: 'Work Sans', sans-serif}
+
+a{text-decoration: none; color: rgb(613, 189, 174, 3);
+}
+
+.extra{
+  background-color: rgb(223, 169, 174, 1.0);
+  border-style: 10px;
+  padding: 80px;
+  border: hotpink; inset 5px;
+  border-radius:5px;
+  border-bottom-right-radius: 55px;
+  border-top-right-radius: 55px;
+  border-top-left-radius: 55px;
+  margin-right: 3990px;
+  margin-left: 320px;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  font-size: 70px;
+  font-family:'Work Sans', sans-serif;
+  z-index: -1;
+  
+}
