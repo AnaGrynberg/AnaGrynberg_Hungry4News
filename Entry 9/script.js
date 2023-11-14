@@ -1,81 +1,58 @@
-const cards = document.querySelectorAll(".card");
+document.addEventListener("DOMContentLoaded", function() {
+    let words = [
+        "apple", "banana", "orange", "grape", "kiwi",
+        "strawberry", "blueberry", "watermelon", "pineapple", "mango"
+    ];
 
-let matched = 0;
-let cardOne, cardTwo;
-let disableDeck = false;
+    const cloud = document.getElementById("word-cloud");
 
-function flipCard({ target: clickedCard }) {
-  if (cardOne !== clickedCard && !disableDeck) {
-    clickedCard.classList.add("flip");
-    if (!cardOne) {
-      return (cardOne = clickedCard);
+    function createWordCloud() {
+        cloud.innerHTML = "";
+
+        words.forEach(word => {
+            const span = document.createElement("span");
+            span.textContent = word;
+            span.style.fontSize = `${Math.floor(Math.random() * 20) + 15}px`;
+            span.style.color = getRandomColor();
+            span.style.position = "absolute";
+            span.style.left = `${Math.random() * 80}%`;
+            span.style.top = `${Math.random() * 80}%`;
+            cloud.appendChild(span);
+        });
     }
-    cardTwo = clickedCard;
-    disableDeck = true;
 
-    // Extract the image filenames
-    let cardOneImg = cardOne.querySelector(".back-view img").src;
-    let cardTwoImg = cardTwo.querySelector(".back-view img").src;
-
-    matchCards(cardOneImg, cardTwoImg);
-  }
-}
-
-function matchCards(img1, img2) {
-  // Extract the filenames from the local file paths
-  const filename1 = extractFilename(img1);
-  const filename2 = extractFilename(img2);
-
-  if (filename1 === filename2) {
-    matched++;
-    if (matched === 8) {
-      setTimeout(() => {
-        shuffleCard();
-      }, 1000);
+    function getRandomColor() {
+        const letters = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
     }
-    cardOne.removeEventListener("click", flipCard);
-    cardTwo.removeEventListener("click", flipCard);
-    cardOne = cardTwo = "";
-    disableDeck = false;
-  } else {
-    setTimeout(() => {
-      cardOne.classList.add("shake");
-      cardTwo.classList.add("shake");
-    }, 400);
 
-    setTimeout(() => {
-      cardOne.classList.remove("shake", "flip");
-      cardTwo.classList.remove("shake", "flip");
-      cardOne = cardTwo = "";
-      disableDeck = false;
-    }, 1200);
-  }
-}
+    document.getElementById("shuffle-btn").addEventListener("click", function() {
+        words = shuffleArray(words);
+        createWordCloud();
+    });
 
-function shuffleCard() {
-  matched = 0;
-  disableDeck = false;
-  cardOne = cardTwo = "";
-  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-  arr.sort(() => Math.random() > 0.5 ? 1 : -1);
+    document.getElementById("add-word-btn").addEventListener("click", function() {
+        const newWordInput = document.getElementById("new-word-input");
+        const newWord = newWordInput.value.trim();
 
-  // Load images using relative file paths
-  cards.forEach((card, i) => {
-    card.classList.remove("flip");
-    let imgTag = card.querySelector(".back-view img");
-    imgTag.src = `images/images1/img-${arr[i]}.jpg`;
-    card.addEventListener("click", flipCard);
-  });
-}
+        if (newWord !== "") {
+            words.push(newWord);
+            newWordInput.value = "";
+            createWordCloud();
+        }
+    });
 
-shuffleCard();
-
-cards.forEach((card) => {
-  card.addEventListener("click", flipCard);
+    createWordCloud();
 });
 
-function extractFilename(path) {
-  // Extract the filename from the path
-  const parts = path.split("/");
-  return parts[parts.length - 1];
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
