@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let words = [
-        "apple", "banana", "orange", "grape", "kiwi",
-        "strawberry", "blueberry", "watermelon", "pineapple", "mango"
+        "food experience", "food photography", "food design thinking", "collaboration", "culinary",
+        "restaurants", "atmosphere", "arquitecture", "problem solving", "life", "love", "passion","creativity", "food industry", "farm", "space", "company","adaptability","story","inspiration","reserach", "networking", "global cause", "positive change","future"
     ];
 
     const cloud = document.getElementById("word-cloud");
