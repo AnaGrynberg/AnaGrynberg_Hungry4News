@@ -101,13 +101,13 @@ width: 150px}
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1415px){
     body {
         display: none;
     }
-       #desktop-message {
-        display: block;
+@media (min-width: 1415px){
+    body {
+        display: none;
     }
-}
 
 

@@ -119,3 +119,12 @@ a { text-decoration: none; color: black;
     max-width: 35px;
   }
 }
+
+@media (max-width: 1415px){
+    body {
+        display: none;
+    }
+@media (min-width: 1415px){
+    body {
+        display: none;
+    }
