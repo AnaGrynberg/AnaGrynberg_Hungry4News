@@ -191,8 +191,7 @@ article {
       background: deeppink;
       animation: progress-animation 10s ease-in-out infinite;
     }
-  }
-}
+
 @media (max-width: 1415px){
     body {
         display: none;

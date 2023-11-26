@@ -73,3 +73,14 @@ a{text-decoration: none; color: rgb(613, 189, 174, 3);
   z-index: -1;
   
 }
+
+
+@media (max-width: 1415px){
+    body {
+        display: none;
+    }
+@media (min-width: 1415px){
+    body {
+        display: none;
+    }
+    

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let words = [
         "food experience", "food photography", "food design thinking", "collaboration", "culinary",
-        "restaurants", "atmosphere", "arquitecture", "problem solving", "life", "love", "passion","creativity", "food industry", "farm", "space", "company","adaptability","story","inspiration","reserach", "networking", "global cause", "positive change","future"
+        "restaurants", "atmosphere", "architecture", "problem solving", "life", "love", "passion", "creativity", "food industry", "farm", "space", "company", "adaptability", "story", "inspiration", "research", "networking", "global cause", "positive change", "future"
     ];
 
     const cloud = document.getElementById("word-cloud");
@@ -55,4 +55,37 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+}
+
+document.getElementById("subscribe-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Your form submission logic here...
+
+    // Trigger confetti animation
+    triggerConfetti();
+
+    // Clear the form inputs
+    document.getElementById("name-input").value = "";
+    document.getElementById("email-input").value = "";
+});
+
+function triggerConfetti() {
+    const duration = 5 * 1000; // 5 seconds
+    const confettiCanvas = document.getElementById('confetti-canvas');
+
+    canvasConfetti({
+        particleCount: 100,
+        spread: 160,
+        origin: { y: 0.6 },
+        colors: ['#FFD700', '#FF4500', '#008000', '#4169E1', '#800080'],
+        disableForReducedMotion: true,
+        canvas: confettiCanvas,
+        ticks: duration / 100,
+    });
+
+    setTimeout(() => {
+        const confettiElements = document.querySelectorAll('.confetti');
+        confettiElements.forEach(element => element.parentNode.removeChild(element));
+    }, duration);
 }

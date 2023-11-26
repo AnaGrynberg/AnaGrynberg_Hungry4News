@@ -46,26 +46,26 @@ img:hover {
 
 
 @keyframes samplechange2{
-	100%{
+	0%{
 		opacity: 1;
-		transform: translateX(80vw);
+		transform: translateX(50vw);
 	}
 
-	0%{
+	100%{
 		opacity: 0;
-		transform: translateX(0vw);
+		transform: translateX(60vw);
 	}
 
 	50%{
 		opacity: .5;
-		transform: translateX(60vw);
+		transform: translateX(0vw);
 	}
 
 	100%{
 		opacity: 1;
-		transform: translateX(0vw);
+		transform: translateX(60vw);
 }
-	0%{
+	100%{
 		opacity: 1;
 		transform: translateX(0vw);
 	}
