@@ -58,34 +58,11 @@ function shuffleArray(array) {
 }
 
 document.getElementById("subscribe-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+  event.preventDefault(); 
 
-    // Your form submission logic here...
 
-    // Trigger confetti animation
-    triggerConfetti();
-
-    // Clear the form inputs
-    document.getElementById("name-input").value = "";
-    document.getElementById("email-input").value = "";
+ document.getElementById("name-input").value = "";
+ document.getElementById("email-input").value = "";
 });
 
-function triggerConfetti() {
-    const duration = 5 * 1000; // 5 seconds
-    const confettiCanvas = document.getElementById('confetti-canvas');
 
-    canvasConfetti({
-        particleCount: 100,
-        spread: 160,
-        origin: { y: 0.6 },
-        colors: ['#FFD700', '#FF4500', '#008000', '#4169E1', '#800080'],
-        disableForReducedMotion: true,
-        canvas: confettiCanvas,
-        ticks: duration / 100,
-    });
-
-    setTimeout(() => {
-        const confettiElements = document.querySelectorAll('.confetti');
-        confettiElements.forEach(element => element.parentNode.removeChild(element));
-    }, duration);
-}
